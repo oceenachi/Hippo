@@ -8,7 +8,7 @@ export const formDetails = {
   },
   lastName: {
     name: "lastName",
-    label: "last Name",
+    label: "Last Name",
     rules: [{ required: true, message: "Please input your last name!" }],
     icon: "UserOutlined",
     placeholder: "Enter your last name",
@@ -24,7 +24,7 @@ export const formDetails = {
     name: "businessName",
     label: "Business Name",
     rules: [{ required: true, message: "Please input your business name!" }],
-    icon: "UserOutlined",
+    icon: "BankOutlined",
     placeholder: "Enter your business name",
   },
   phone: {
@@ -99,7 +99,7 @@ export const formDetails = {
     name: "businessPhoneNum",
     label: "Business phone Number",
     rules: [{ required: true, message: "Please input your business phone Number!" }],
-    icon: "UserOutlined",
+    icon: "PhoneOutlined",
     placeholder: "Enter your business phone number",
   },
   businessAddress: {
