@@ -51,6 +51,7 @@ export const formDetails = {
     icon: "PhoneOutlined",
     placeholder: "Enter your business number",
     type: "num",
+    
   },
   bvn: {
     name: "bvn",
@@ -77,7 +78,7 @@ export const formDetails = {
     placeholder: "select your bank",
     options: [
       { name: "Access", value: "access" },
-      { name: "First Name", value: "firstBank" },
+      { name: "First Bank", value: "firstBank" },
       { name: "GT Bank", value: "gtb" },
       { name: "Kuda Bank", value: "kuda" },
 
@@ -101,6 +102,7 @@ export const formDetails = {
     rules: [{ required: true, message: "Please input your business phone Number!" }],
     icon: "PhoneOutlined",
     placeholder: "Enter your business phone number",
+    type:"num"
   },
   businessAddress: {
     name: "businessAddress",
