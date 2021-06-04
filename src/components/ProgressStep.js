@@ -18,6 +18,10 @@ function ProgressStep() {
     setCurrent(current);
   };
 
+  const handleSubmit = () => {
+    console.log("submitting")
+  }
+
   const next = () => {
     setCurrent(current + 1);
   };
@@ -30,7 +34,7 @@ function ProgressStep() {
     {
       title: "Personal Details",
       content: (
-        <FormBody next={next} description="" title="Tell us about you">
+        <FormBody next={next} description="" title="Tell us about you" current={current}>
           <PersonalDetails />
         </FormBody>
       ),
@@ -43,6 +47,7 @@ function ProgressStep() {
           next={next}
           description="We have sent and SMS message with your verification code to your phone number"
           title="Verify Your Phone Number"
+          current={current}
         >
           <VerificationForm />
         </FormBody>
@@ -56,6 +61,7 @@ function ProgressStep() {
           next={next}
           description="Bussiness account Details"
           title="Tell us about your Bank account details"
+          current={current}
         >
           <BusinessDetailsForm />
         </FormBody>
@@ -66,9 +72,10 @@ function ProgressStep() {
       title: "Bank/Business Account Details",
       content: (
         <FormBody
-          next={next}
           description="Business Account Details"
           title="Tell us about your Bank Account"
+          handleSubmit={handleSubmit}
+          current={current}
         >
           <AccountDetails />
         </FormBody>
