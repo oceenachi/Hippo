@@ -1,25 +1,23 @@
 import React from 'react'
 import styled from 'styled-components';
-import { Form, Input, Select } from "antd";
+import { Form, Input } from "antd";
 import * as AntdIcons from '@ant-design/icons';
 
 
 export const FormInputComponent = ({ details }) => {
-
-    const { Option } = Select;
 
 
     const { name, label, rules, icon, placeholder , type} = details;
 
     const prefixSelector = (
         <Form.Item name="prefix" noStyle>
-          <Select
+          <div
             style={{
-              width: 80,
+              width: 60,
             }}
           >
-            <Option selected defaultValue="+234" value="+234">+234</Option>
-          </Select>
+            +234
+          </div>
         </Form.Item>
       );
 
