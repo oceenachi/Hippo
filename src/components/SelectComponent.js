@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import { Form, Select } from "antd";
+import { Select } from "antd";
 
 
 export const FormSelectComponent = ({details}) => {
@@ -41,8 +41,8 @@ export const FormSelectComponent = ({details}) => {
                     option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                 }
             >
-                {options.map((item) => (
-                    <Option value={item.value}>{item.name}</Option>
+                {options.map((item, index) => (
+                    <Option key={index} value={item.value}>{item.name}</Option>
 
                 ))}
             </Select>
@@ -61,11 +61,6 @@ margin: 1rem auto 0;
     width: 100% !important;
 }
 
-.ant-select:hover {
-    border: 2px solid #e3e6ee;
-    border-radius: 6px;
-
-}
 label{
     margin-bottom: .5rem;
 }
@@ -77,4 +72,7 @@ label{
     padding: 4px 11px;
 }
 
+@media only screen and  (max-width: 770px){
+    width: 100%;
+}
 `;
