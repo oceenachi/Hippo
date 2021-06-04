@@ -1,14 +1,30 @@
 import React from 'react'
 import styled from 'styled-components';
-import { Form, Input } from "antd";
-import { UserOutlined } from '@ant-design/icons';
-
-
+import { Form, Input, Select } from "antd";
+import * as AntdIcons from '@ant-design/icons';
 
 
 export const FormInputComponent = ({ details }) => {
 
-    const { name, label, rules, icon, placeholder } = details;
+    const { Option } = Select;
+
+
+    const { name, label, rules, icon, placeholder , type} = details;
+
+    const prefixSelector = (
+        <Form.Item name="prefix" noStyle>
+          <Select
+            style={{
+              width: 80,
+            }}
+          >
+            <Option selected defaultValue="+234" value="+234">+234</Option>
+          </Select>
+        </Form.Item>
+      );
+
+
+    let AntdIcon = AntdIcons[icon] ;
 
     return (
         <StyledInput>
@@ -18,7 +34,7 @@ export const FormInputComponent = ({ details }) => {
                 label={label}
                 rules={rules}
             >
-                <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder={placeholder} />
+                <Input prefix={<AntdIcon className="site-form-item-icon" />} placeholder={placeholder} addonBefore={type && type === "num" ? prefixSelector : ""}/>
             </Form.Item>
 
         </StyledInput>
@@ -31,7 +47,6 @@ const StyledInput = styled.div`
     margin: 0 auto;
     font-weight: 400;
    
-    
 .ant-input-affix-wrapper > input.ant-input{
     height: 33px;
 }
