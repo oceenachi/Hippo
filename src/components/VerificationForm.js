@@ -5,7 +5,7 @@ import { FormInputComponent } from './InputComponent'
 const VerificationForm = () => {
     return (
         <>
-            <FormInputComponent details={formDetails.otp}/>
+            <FormInputComponent details={formDetails.otp} className="otp-input"/>
             
         </>
     )
