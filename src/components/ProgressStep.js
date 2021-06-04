@@ -1,6 +1,6 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import { Steps, Button, message, Popover } from 'antd';
+import { Steps, Popover } from 'antd';
 import Styled from "styled-components";
 import PersonalDetailsForm from "./PersonalDetailsForm"
 
@@ -8,13 +8,14 @@ import PersonalDetailsForm from "./PersonalDetailsForm"
 
 const { Step } = Steps;
 
-const customDot = (dot, { status, index }) => (
+const CustomDot = (dot, { status, index }) => (
   <Popover
     content={
       <span>
         step {index} status: {status}
       </span>
     }
+
   >
     {dot}
   </Popover>
@@ -26,24 +27,24 @@ const steps = [
   {
     title: 'Personal Details',
     content: <PersonalDetailsForm />,
-    description: "You can hover on the dot."
+    description: "Tell us about you"
   },
   {
-    title: 'Second',
+    title: 'Verification',
     content: "other",
-    description: "You can hover on the dot."
+    description: "SMS message with your verification code to your phone number"
 
   },
   {
-    title: 'Third',
-    content: 'Third content',
-    description: "You can hover on the dot."
+    title: 'Business Details',
+    content: 'Tell us about your business',
+    description: "Tell us about your business"
 
   },
   {
-    title: 'Last',
+    title: 'Bank/Business Account Details',
     content: 'Last-content',
-    description: "You can hover on the dot."
+    description: "Enter your bank account details"
 
   },
 ];
@@ -68,30 +69,16 @@ function ProgressStep() {
 
   return (
     <StyledProgressSteps>
-      <Steps current={current} className="steps-parent" onChange={onChange} /*progressDot={customDot}*/>
-        {steps.map(item => (
-          <Step key={item.title} title={item.title} description={item.description} className="progress-steps" />
+      <Steps current={current} className="steps-parent" onChange={onChange} >
+        {steps.map((item, index) => (
+          <>
+            <Step key={item.title} title={item.title} description={item.description} className="progress-steps" />
+          </>
         ))}
       </Steps>
       <div className="steps-content">{steps[current].content}</div>
 
-      <div className="steps-action">
-        {current < steps.length - 1 && (
-          <Button type="primary" onClick={() => next()}>
-            Next
-          </Button>
-        )}
-        {current === steps.length - 1 && (
-          <Button type="primary" onClick={() => message.success('Processing complete!')}>
-            Done
-          </Button>
-        )}
-        {current > 0 && (
-          <Button style={{ margin: '0 8px' }} onClick={() => prev()}>
-            Previous
-          </Button>
-        )}
-      </div>
+
     </StyledProgressSteps>
   );
 };
