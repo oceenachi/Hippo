@@ -3,7 +3,7 @@ import Styled from "styled-components";
 import { Form, Button } from "antd";
 import { ArrowRightOutlined } from "@ant-design/icons";
 
-const FormBody = ({ children, title, description, next }) => {
+const FormBody = ({ children, title, description, next, current }) => {
     const [form] = Form.useForm();
     const [, forceUpdate] = useState({});
 
@@ -12,7 +12,7 @@ const FormBody = ({ children, title, description, next }) => {
         forceUpdate({});
     }, []);
 
-    const onFinish = (values) => {
+    const onFinish = (values, a) => {
         console.log("Finish:", values);
     };
 
@@ -31,14 +31,15 @@ const FormBody = ({ children, title, description, next }) => {
                     {() => (
                         <Button
                             type="primary"
-                            onClick={next}
-                        //   htmlType="submit"
+                            onClick={next || onFinish}
+                             htmlType="submit"
+                            
                         // disabled={
                         //     !form.isFieldsTouched(true) ||
                         //     !!form.getFieldsError().filter(({ errors }) => errors.length).length
                         // }
                         >
-                            Proceed to next Step <ArrowRightOutlined />
+                           { current < 3 ? `Proceed to next Step `: "Submit"} {current < 3 ? <ArrowRightOutlined/> : null}
                         </Button>
                     )}
                 </Form.Item>
