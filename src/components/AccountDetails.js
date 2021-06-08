@@ -3,14 +3,14 @@ import { formDetails } from './formDetails'
 import { FormInputComponent } from './InputComponent'
 import { FormSelectComponent } from './SelectComponent'
 
-const AccountDetails = () => {
+const AccountDetails = ({ data, updateData, error, setError}) => {
     return (
         <>
-             <FormInputComponent details={formDetails.bvn} />
-              <FormInputComponent details={formDetails.accountNumber} />
-              <FormSelectComponent details={formDetails.bankName} />
+             <FormInputComponent details={formDetails.bvn} data={data} updateData={updateData} error={error} setError={setError} />
+              <FormInputComponent details={formDetails.accountNumber} data={data} updateData={updateData} error={error} setError={setError} />
+              <FormSelectComponent details={formDetails.bankName} data={data} updateData={updateData} error={error} setError={setError}/>
 
-              <FormInputComponent details={formDetails.businessAccountName} />
+              <FormInputComponent details={formDetails.businessAccountName} data={data} updateData={updateData} error={error} setError={setError}/>
 
     
             

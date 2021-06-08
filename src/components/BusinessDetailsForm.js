@@ -3,17 +3,17 @@ import { formDetails } from './formDetails'
 import { FormInputComponent } from './InputComponent'
 import { FormSelectComponent } from './SelectComponent'
 
-const BusinessDetailsForm = () => {
+const BusinessDetailsForm = ({ data, updateData, error, setError}) => {
     return (
         <>
-             <FormInputComponent details={formDetails.businessName} />
-              <FormInputComponent details={formDetails.businessPhoneNum} />
+             <FormInputComponent details={formDetails.businessName} data={data} updateData={updateData} error={error} setError={setError}/>
+              <FormInputComponent details={formDetails.businessPhoneNum} data={data} updateData={updateData} error={error} setError={setError}/>
    
-              <FormSelectComponent details={formDetails.typeOfBusiness} />
-              <FormSelectComponent details={formDetails.lendingPlatform} />
+              <FormSelectComponent details={formDetails.typeOfBusiness} data={data} updateData={updateData} error={error} setError={setError} />
+              <FormSelectComponent details={formDetails.lendingPlatform} data={data} updateData={updateData} error={error} setError={setError}/>
 
-              <FormInputComponent details={formDetails.businessAddress} />
-              <FormInputComponent details={formDetails.personalAddress} />
+              <FormInputComponent details={formDetails.businessAddress} data={data} updateData={updateData} error={error} setError={setError}/>
+              <FormInputComponent details={formDetails.personalAddress} data={data} updateData={updateData} error={error} setError={setError} />
             
         </>
     )
