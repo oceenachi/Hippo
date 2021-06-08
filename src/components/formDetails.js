@@ -2,35 +2,35 @@ export const formDetails = {
   firstname: {
     name: "firstName",
     label: "First Name",
-    rules: [{ required: true, message: "Please input your first name!" }],
+    rules: [{ required: false, message: "Please input your first name!" }],
     icon: "UserOutlined",
     placeholder: "Enter your first name",
   },
   lastName: {
     name: "lastName",
     label: "Last Name",
-    rules: [{ required: true, message: "Please input your last name!" }],
+    rules: [{ required: false, message: "Please input your last name!" }],
     icon: "UserOutlined",
     placeholder: "Enter your last name",
   },
   email: {
     name: "email",
     label: "Email",
-    rules: [{ required: true, message: "Please input your email!" }],
+    rules: [{ required: false, message: "Please input your email!" }],
     icon: "MailOutlined",
     placeholder: "Enter your email",
   },
   businessName: {
     name: "businessName",
     label: "Business Name",
-    rules: [{ required: true, message: "Please input your business name!" }],
+    rules: [{ required: false, message: "Please input your business name!" }],
     icon: "BankOutlined",
     placeholder: "Enter your business name",
   },
   phone: {
     name: "phone",
     label: "Phone Number",
-    rules: [{ required: true, message: "please input your phone number" }],
+    rules: [{ required: false, message: "please input your phone number" }],
     icon: "PhoneOutlined",
     placeholder: "Enter your phone number",
     type: "num",
@@ -38,7 +38,7 @@ export const formDetails = {
   otp: {
     name: "otp",
     label: "OTP",
-    rules: [{ required: true, message: "Enter OTP" }],
+    rules: [{ required: false, message: "Enter OTP" }],
     icon: "MobileOutlined",
     placeholder: "123456",
   },
@@ -46,7 +46,7 @@ export const formDetails = {
     name: "bphone",
     label: "Business Phone Number",
     rules: [
-      { required: true, message: "please input your business phone number" },
+      { required: false, message: "please input your business phone number" },
     ],
     icon: "PhoneOutlined",
     placeholder: "Enter your business number",
@@ -57,7 +57,7 @@ export const formDetails = {
     name: "bvn",
     label: "Bank Verification Number(BVN)",
     rules: [
-      { required: true, message: "please input your BVN" },
+      { required: false, message: "please input your BVN" },
     ],
     icon: "MobileOutlined",
     placeholder: "Enter your BVN",
@@ -66,7 +66,7 @@ export const formDetails = {
     name: "accountNumber",
     label: "Business Account Number",
     rules: [
-      { required: true, message: "please input your business account number" },
+      { required: false, message: "please input your business account number" },
     ],
     icon: "MobileOutlined",
     placeholder: "Enter your business account number",
@@ -74,7 +74,7 @@ export const formDetails = {
   bankName: {
     name: "bankName",
     label: "Choose your Bank",
-    rules: [{ required: true, message: "please choose your Bank" }],
+    rules: [{ required: false, message: "please choose your Bank" }],
     placeholder: "select your bank",
     options: [
       { name: "Access", value: "access" },
@@ -91,7 +91,7 @@ export const formDetails = {
   businessAccountName: {
     name: "businessAccountName",
     label: "Business account Name",
-    rules: [{ required: true, message: "Please input your business account name!" }],
+    rules: [{ required: false, message: "Please input your business account name!" }],
     icon: "UserOutlined",
     placeholder: "Enter your account name",
   },
@@ -99,7 +99,7 @@ export const formDetails = {
   businessPhoneNum: {
     name: "businessPhoneNum",
     label: "Business phone Number",
-    rules: [{ required: true, message: "Please input your business phone Number!" }],
+    rules: [{ required: false, message: "Please input your business phone Number!" }],
     icon: "PhoneOutlined",
     placeholder: "Enter your business phone number",
     type:"num"
@@ -107,21 +107,21 @@ export const formDetails = {
   businessAddress: {
     name: "businessAddress",
     label: "Business Address",
-    rules: [{ required: true, message: "Please input your business location!" }],
+    rules: [{ required: false, message: "Please input your business location!" }],
     icon: "UserOutlined",
     placeholder: "Enter your account name",
   },
   personalAddress: {
     name: "personalAddress",
     label: "House Address",
-    rules: [{ required: true, message: "Please input your house address!" }],
+    rules: [{ required: false, message: "Please input your house address!" }],
     icon: "UserOutlined",
     placeholder: "Enter your house address",
   },
   typeOfBusiness: {
     name: "typeOfBusiness",
     label: "Choose business type",
-    rules: [{ required: true, message: "please choose your business type" }],
+    rules: [{ required: false, message: "please choose your business type" }],
     placeholder: "select your business type",
     options: [
       { name: "E-commerce", value: "ecommerce" },
@@ -135,7 +135,7 @@ export const formDetails = {
   lendingPlatform: {
     name: "lendingPlatform",
     label: "Choose other lending platforms you use",
-    rules: [{ required: true, message: "please choose other lending platform" }],
+    rules: [{ required: false, message: "please choose other lending platform" }],
     placeholder: "select lending platform",
     options: [
       { name: "Carbon", value: "carbon" },
@@ -148,7 +148,7 @@ export const formDetails = {
   gender: {
     name: "gender",
     label: "Choose your gender",
-    rules: [{ required: true, message: "please choose your gender" }],
+    rules: [{ required: false, message: "please choose your gender" }],
     placeholder: "select your gender",
     options: [
       { name: "Male", value: "male" },
@@ -160,7 +160,7 @@ export const formDetails = {
     name: "highestQual",
     label: "Highest Qualification attained",
     rules: [
-      { required: true, message: "please input your highest qualification" },
+      { required: false, message: "please input your highest qualification" },
     ],
     placeholder: "select highest qualification",
     options: [
@@ -176,7 +176,7 @@ export const formDetails = {
   marital: {
     name: "maritalStatus",
     label: "Marital Status",
-    rules: [{ required: true, message: "please state your marital status" }],
+    rules: [{ required: false, message: "please state your marital status" }],
     placeholder: "select your marital status",
     options: [
       { value: "single", name: "Single" },
@@ -188,7 +188,7 @@ export const formDetails = {
   dob: {
     name: "dob",
     label: "Date of Birth",
-    rules: [{ required: true, message: "please input your date of birth" }],
+    rules: [{ required: false, message: "please input your date of birth" }],
     placeholder: "Date of Birth",
   },
 };
