@@ -12,9 +12,10 @@ const FormBody = ({ children, title, description, next, current }) => {
         forceUpdate({});
     }, []);
 
-    const onFinish = (values, a) => {
+    const onFinish = (values) => {
         console.log("Finish:", values);
     };
+
 
     return (
         <StyledDetails>
@@ -33,11 +34,7 @@ const FormBody = ({ children, title, description, next, current }) => {
                             type="primary"
                             onClick={next || onFinish}
                              htmlType="submit"
-                            
-                        // disabled={
-                        //     !form.isFieldsTouched(true) ||
-                        //     !!form.getFieldsError().filter(({ errors }) => errors.length).length
-                        // }
+                      
                         >
                            { current < 3 ? `Proceed to next Step `: "Submit"} {current < 3 ? <ArrowRightOutlined/> : null}
                         </Button>
@@ -107,8 +104,6 @@ const StyledDetails = Styled.div`
     }
 
  }
-
-
 
 `;
 export default FormBody;
