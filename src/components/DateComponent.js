@@ -26,15 +26,19 @@ const config = {
   rules: [
     {
       type: 'object',
-      required: true,
+      required: false,
       message: 'Please select time!',
     },
   ],
 };
 
-const DateComponent = ({details}) => {
+const DateComponent = ({details, data, updateData, error, setError }) => {
 
     const {name, label} = details;
+  function onChange(e) {
+      setError({ ...error, [name]: ""});
+      updateData({ ...data, [name]: e.format('YYYY-MM-DD')});
+  }
 
   const onFinish = (fieldsValue) => {
     // Should format date value before submit.
@@ -49,9 +53,9 @@ const DateComponent = ({details}) => {
   return (
     <StyledDate name="time_related_controls" {...formItemLayout} onFinish={onFinish}>
       <Form.Item name={name} label={label} {...config} className="form-input-dateField">
-        <DatePicker />
+        <DatePicker onChange={onChange}/>
       </Form.Item>
-      
+      { error && error[name] && <p color="red" className="error-alert form-item-explain-error ant-form-item-explain">{error[name]}</p>}
      
     </StyledDate>
   );
@@ -75,11 +79,9 @@ margin: 0 auto;
     border-radius: 6px;
 
 }
-.ant-picker-hover{
-    border: 2px solid #2657ff;
-}
-.ant-picker-focused{
-    border: 2px solid #2657ff;
+.ant-picker:hover, .ant-picker-focused {
+    border-color: #40a9ff !important;
+    border-width: 2px !important;
 }
 .ant-form-inline .ant-form-item > .ant-form-item-label {
     text-align: left !important;
@@ -88,6 +90,23 @@ margin: 0 auto;
 .ant-form-inline .ant-form-item > .ant-form-item-label {
     flex: none;
 }
+.ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+    border-color: ${({error}) => `${error? '#ff4d4f':  '#40a9ff'} !important`};
+    border-right-width: 1px !important;
+}
+.form-item-explain-error {
+    color: #ff4d4f;
+}
+.ant-form-item-explain {
+    clear: both;
+    min-height: 24px;
+    font-size: 14px;
+    line-height: 1.5715;
+}
+.error-alert.form-item-explain-error.ant-form-item-explain{
+    margin-bottom: 0;
+}
+
 
 @media only screen and  (max-width: 770px){
     width: 100%;
