@@ -7,15 +7,35 @@ import VerificationForm from "./VerificationForm";
 import BusinessDetailsForm from "./BusinessDetailsForm";
 import AccountDetails from "./AccountDetails";
 import PersonalDetails from "./PersonalDetails";
+import { dataValidator } from "../utils/validation";
 
 const { Step } = Steps;
 
 function ProgressStep() {
-  const [current, setCurrent] = React.useState(0);
 
-  const onChange = (current) => {
-    console.log("onChange:", current);
-    setCurrent(current);
+
+  const [current, setCurrent] = React.useState(0);
+  const [data, setData] = React.useState({});
+  const [error, setError] = React.useState({});
+
+
+  const onChange = (cur) => {
+    console.log("onChange:", cur);
+    if (cur < current) {
+      setCurrent(cur);
+    } else {
+      for (let i = current; i < cur; i++) {
+        let error = dataValidator(data, i);
+        if (Object.keys(error).length) {
+          // update error
+          setError(error);
+          console.log('validation error occured')
+          setCurrent(i)
+          return ;
+        }
+      }
+      setCurrent(cur);
+    }
   };
 
   const handleSubmit = () => {
@@ -23,6 +43,14 @@ function ProgressStep() {
   }
 
   const next = () => {
+    let error = dataValidator(data, current);
+
+    if (Object.keys(error).length) {
+      // update error
+      setError(error);
+      console.log('validation error occured')
+      return
+    }
     setCurrent(current + 1);
   };
 
@@ -30,12 +58,17 @@ function ProgressStep() {
     setCurrent(current - 1);
   };
 
+  const updateData = (data) => {
+    console.log(data);
+    setData(data);
+  }
+
   const steps = [
     {
       title: "Personal Details",
       content: (
         <FormBody next={next} description="" title="Tell us about you" current={current}>
-          <PersonalDetails />
+          <PersonalDetails data={data} updateData={updateData} error={error} setError={setError}/>
         </FormBody>
       ),
       description: "Tell us about you",
@@ -49,7 +82,7 @@ function ProgressStep() {
           title="Verify Your Phone Number"
           current={current}
         >
-          <VerificationForm />
+          <VerificationForm  data={data} updateData={updateData} setError={setError} error={error}/>
         </FormBody>
       ),
       description: "Verify your phone number",
@@ -63,7 +96,7 @@ function ProgressStep() {
           title="Tell us about your Bank account details"
           current={current}
         >
-          <BusinessDetailsForm />
+          <BusinessDetailsForm  data={data} updateData={updateData} error={error} setError={setError}/>
         </FormBody>
       ),
       description: "Tell us about your business",
@@ -77,7 +110,7 @@ function ProgressStep() {
           handleSubmit={handleSubmit}
           current={current}
         >
-          <AccountDetails />
+          <AccountDetails data={data} updateData={updateData} error={error} setError={setError}/>
         </FormBody>
       ),
       description: "Enter your bank account details",
