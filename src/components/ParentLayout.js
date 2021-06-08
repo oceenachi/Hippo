@@ -7,7 +7,7 @@ const ParentLayout = () => {
         <Wrapper className="wrapper">
             <nav className="parent-navbar">
                 <div className="nav-img">
-                    <img src="./images/payhippo.png" alt="logo"/>
+                    <img src="./images/payhippo.png" alt="Hippo logo"/>
                 </div>
             </nav>
                 <ProgressStep className="mid-section"/>
